@@ -1,0 +1,51 @@
+#include <iostream>
+#include "ArrayStack.h"
+
+ArrayStack::ArrayStack(int size) {
+	capacity = size;
+	arr = new int[capacity];
+	topIndex = -1;
+}
+ArrayStack::~ArrayStack() {
+	delete[] arr;
+}
+bool ArrayStack::isEmpty() {
+	if (topIndex == -1) {
+		return true;
+	}
+	return false;
+}
+void ArrayStack::push(int value) {
+	if (topIndex == capacity - 1) {
+		std::cout << "Error stack overflow ! cannot push value " << value << ".\n";
+		return;
+	}
+	topIndex++;
+	arr[topIndex] = value;
+	std::cout << "pushed the " << value << " in stack.\n";
+}
+void ArrayStack::pop() {
+	if (isEmpty()) {
+		std::cout << "Error stack is underflow ! cannot pop stack is already empty\n";
+		return;
+	}
+	std::cout << "poped the value " << arr[topIndex] << ".\n";
+	topIndex--;
+}
+int ArrayStack::peek() {
+	if (isEmpty()) {
+		std::cout << "Error stack is empty\n";
+		return -1;
+	}
+	return arr[topIndex];
+}
+void ArrayStack::trav() {
+	if (isEmpty()) {
+		std::cout << "Error stack is empty\n";
+		return;
+	}
+	std::cout << "listing the value in stack form top to bottom\n";
+	for (int i = topIndex; i >= 0; i--) {
+		std::cout << arr[i] << "\n";
+	}
+}

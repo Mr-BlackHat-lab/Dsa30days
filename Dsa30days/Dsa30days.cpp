@@ -3,6 +3,7 @@
 //#include "ArrayStack.h"
 //#include "LinkedlistStack.h"
 //#include "ArrayQueue.h"
+#include "LinkedListQueue.h"
 using namespace std;
 int main()
 {
@@ -64,5 +65,18 @@ int main()
     //mystack.push(1);
     //mystack.traversal();
 
-    
+    LinkedListQueue mystack;
+    for (int i = 1; i <= 5;i++) {
+        mystack.enqueue(i);
+    }
+    cout << mystack.peek_first() << " is going to poped\n";
+    cout << mystack.dequeue() << " is poped\n";
+    cout << mystack.peek_last() << " is last in line\n";
+    if (!mystack.isEmpty()) {
+        cout << "queue is not empty\n";
+    }
+    mystack.traversal();
+    mystack.enqueue(1);
+    mystack.traversal();
+
 }

@@ -126,11 +126,13 @@
     <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
     <ClCompile Include="Dsa30days.cpp" />
+    <ClCompile Include="LinkedListQueue.cpp" />
     <ClCompile Include="LInklistStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="ArrayQueue.h" />
+    <ClInclude Include="LinkedListQueue.h" />
     <ClInclude Include="LinkedlistStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

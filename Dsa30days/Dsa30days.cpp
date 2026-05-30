@@ -3,7 +3,8 @@
 //#include "ArrayStack.h"
 //#include "LinkedlistStack.h"
 //#include "ArrayQueue.h"
-#include "LinkedListQueue.h"
+//#include "LinkedListQueue.h"
+#include "LinkListBTree.h"
 using namespace std;
 int main()
 {
@@ -65,18 +66,43 @@ int main()
     //mystack.push(1);
     //mystack.traversal();
 
-    LinkedListQueue mystack;
-    for (int i = 1; i <= 5;i++) {
-        mystack.enqueue(i);
+    //LinkedListQueue mystack;
+    //for (int i = 1; i <= 5;i++) {
+    //    mystack.enqueue(i);
+    //}
+    //cout << mystack.peek_first() << " is going to poped\n";
+    //cout << mystack.dequeue() << " is poped\n";
+    //cout << mystack.peek_last() << " is last in line\n";
+    //if (!mystack.isEmpty()) {
+    //    cout << "queue is not empty\n";
+    //}
+    //mystack.traversal();
+    //mystack.enqueue(1);
+    //mystack.traversal();
+
+
+     LinkListBTree myTree;
+
+    myTree.push(10);
+    myTree.push(5);
+    myTree.push(15);
+    myTree.push(3);
+    myTree.push(8);
+    myTree.push(12);
+    myTree.push(20);
+
+    cout << "\nTree Traversal (Inorder): ";
+    myTree.traversal();
+
+    cout << "\nRoot Node: " << myTree.peek_head() << endl;
+
+    cout << "Total Nodes: " << myTree.tree_nodes() << endl;
+
+    cout << "Tree Height: " << myTree.tree_height() << endl;
+
+    if (!myTree.isEmpty()) {
+        cout << "Tree is not empty\n";
     }
-    cout << mystack.peek_first() << " is going to poped\n";
-    cout << mystack.dequeue() << " is poped\n";
-    cout << mystack.peek_last() << " is last in line\n";
-    if (!mystack.isEmpty()) {
-        cout << "queue is not empty\n";
-    }
-    mystack.traversal();
-    mystack.enqueue(1);
-    mystack.traversal();
+
 
 }

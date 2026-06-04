@@ -1,34 +1,37 @@
 #include <iostream>
 
-//#include "ArrayStack.h"
+#include "ArrayStack.h"
 //#include "LinkedlistStack.h"
 //#include "ArrayQueue.h"
 //#include "LinkedListQueue.h"
-#include "LinkListBTree.h"
+//#include "LinkListBTree.h"
 using namespace std;
 int main()
 {
-    //ArrayStack mystack(5);
-    //if (mystack.isEmpty()) {
-    //    cout << "stack is empty\n";
-    //}
-    //else {
-    //    cout << "stack is not empty\n";
-    //}
-    //mystack.push(20);
-    //mystack.push(30);
-    //mystack.push(40);
-    //mystack.pop();
-    //cout << mystack.peek() << " is in top\n";
-    //mystack.push(50);
-    //mystack.push(60);
-    //if (mystack.isEmpty()) {
-    //    cout << "stack is empty\n";
-    //}
-    //else {
-    //    cout << "stack is not empty\n";
-    //}
-    //mystack.trav();
+    ArrayStack mystack(5);
+    if (mystack.isEmpty()) {
+        cout << "stack is empty\n";
+    }
+    else {
+        cout << "stack is not empty\n";
+    }
+    mystack.push(20);
+    mystack.push(5);
+    mystack.push(40);
+    mystack.pop();
+    cout << mystack.peek() << " is in top\n";
+    mystack.push(60);
+    mystack.push(50);
+    if (mystack.isEmpty()) {
+        cout << "stack is empty\n";
+    }
+    else {
+        cout << "stack is not empty\n";
+    }
+    mystack.trav();
+    mystack.BubbleShort();
+    mystack.trav();
+    mystack.pop();
 
     //LinkedlistStack mystack;
     //if (mystack.isEmpty()) {
@@ -81,28 +84,28 @@ int main()
     //mystack.traversal();
 
 
-     LinkListBTree myTree;
+    // LinkListBTree myTree;
 
-    myTree.push(10);
-    myTree.push(5);
-    myTree.push(15);
-    myTree.push(3);
-    myTree.push(8);
-    myTree.push(12);
-    myTree.push(20);
+    //myTree.push(10);
+    //myTree.push(5);
+    //myTree.push(15);
+    //myTree.push(3);
+    //myTree.push(8);
+    //myTree.push(12);
+    //myTree.push(20);
 
-    cout << "\nTree Traversal (Inorder): ";
-    myTree.traversal();
+    //cout << "\nTree Traversal (Inorder): ";
+    //myTree.traversal();
 
-    cout << "\nRoot Node: " << myTree.peek_head() << endl;
+    //cout << "\nRoot Node: " << myTree.peek_head() << endl;
 
-    cout << "Total Nodes: " << myTree.tree_nodes() << endl;
+    //cout << "Total Nodes: " << myTree.tree_nodes() << endl;
 
-    cout << "Tree Height: " << myTree.tree_height() << endl;
+    //cout << "Tree Height: " << myTree.tree_height() << endl;
 
-    if (!myTree.isEmpty()) {
-        cout << "Tree is not empty\n";
-    }
+    //if (!myTree.isEmpty()) {
+    //    cout << "Tree is not empty\n";
+    //}
 
 
 }

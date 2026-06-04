@@ -49,3 +49,19 @@ void ArrayStack::trav() {
 		std::cout << arr[i] << "\n";
 	}
 }
+void ArrayStack::BubbleShort() {
+	if (isEmpty()) {
+		std::cout << "Error stack is empty\n";
+		return;
+	}
+	std::cout << "Sorting the array in bubble short: \n";
+	for (int i = topIndex;i >=0;i--) {
+		for (int j = 0; j < i; j++) {
+			if (arr[j] < arr[j + 1]) {
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+}

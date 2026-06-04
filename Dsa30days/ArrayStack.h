@@ -8,6 +8,7 @@ private:
 public:
 	ArrayStack(int size);
 	~ArrayStack();
+	void BubbleShort();
 	void push(int value);
 	void pop();
 	int peek();

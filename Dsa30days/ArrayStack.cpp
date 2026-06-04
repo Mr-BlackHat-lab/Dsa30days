@@ -49,7 +49,7 @@ void ArrayStack::trav() {
 		std::cout << arr[i] << "\n";
 	}
 }
-void ArrayStack::BubbleShort() {
+void ArrayStack::BubbleSort() {
 	if (isEmpty()) {
 		std::cout << "Error stack is empty\n";
 		return;
@@ -65,3 +65,34 @@ void ArrayStack::BubbleShort() {
 		}
 	}
 }
+void ArrayStack::SelectionSort() {
+	if (isEmpty()) {
+		std::cout << "Error stack is empty\n";
+		return;
+	}
+	for (int i = 0; i < topIndex; i++) {
+		int minIndex = i;
+		for (int j = i; j < topIndex; j++) {
+
+			if (arr[minIndex] > arr[j + 1]) {
+				minIndex = j + 1;
+			}
+		}
+		if (minIndex != i) {
+			int temp = arr[i];
+			arr[i] = arr[minIndex];
+			arr[minIndex] = temp;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

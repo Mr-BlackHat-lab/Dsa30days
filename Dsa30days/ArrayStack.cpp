@@ -90,15 +90,14 @@ void ArrayStack::InsertionSort() {
 		std::cout << "Error stack is empty\n";
 		return;
 	}
+	for (int i = 1;i <= topIndex;i++) {
+		int count = i;
+		
+		for (int j = 1;count > 0 && arr[count] < arr[count-1];j++) { // swap value till its smaller than its before value
+			int temp = arr[count - 1];
+			arr[count - 1] = arr[count];
+			arr[count] = temp;
+			count--;
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-

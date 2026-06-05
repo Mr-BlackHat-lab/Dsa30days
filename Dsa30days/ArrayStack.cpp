@@ -54,10 +54,10 @@ void ArrayStack::BubbleSort() {
 		std::cout << "Error stack is empty\n";
 		return;
 	}
-	std::cout << "Sorting the array in bubble short: \n";
+	std::cout << "Sorting the array in bubble sort: \n";
 	for (int i = topIndex;i >=0;i--) {
 		for (int j = 0; j < i; j++) {
-			if (arr[j] < arr[j + 1]) {
+			if (arr[j] > arr[j + 1]) {
 				int temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
@@ -94,6 +94,9 @@ void ArrayStack::InsertionSort() {
 		int count = i;
 		
 		for (int j = 1;count > 0 && arr[count] < arr[count-1];j++) { // swap value till its smaller than its before value
+			if (j>count) { // count cant be 0 or lower and j cant be larger than count j can max equal to i
+				break;
+			}
 			int temp = arr[count - 1];
 			arr[count - 1] = arr[count];
 			arr[count] = temp;

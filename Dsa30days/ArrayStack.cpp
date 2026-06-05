@@ -85,6 +85,12 @@ void ArrayStack::SelectionSort() {
 		}
 	}
 }
+void ArrayStack::InsertionSort() {
+	if (isEmpty()) {
+		std::cout << "Error stack is empty\n";
+		return;
+	}
+}
 
 
 

@@ -10,6 +10,7 @@ public:
 	~ArrayStack();
 	void BubbleSort();
 	void SelectionSort();
+	void InsertionSort();
 	void push(int value);
 	void pop();
 	int peek();

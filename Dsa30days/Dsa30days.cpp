@@ -29,7 +29,7 @@ int main()
         cout << "stack is not empty\n";
     }
     mystack.trav();
-    mystack.InsertionSort();
+    mystack.Quicksort();
     mystack.trav();
     mystack.pop();
 

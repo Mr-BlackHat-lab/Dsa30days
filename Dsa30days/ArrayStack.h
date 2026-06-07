@@ -10,6 +10,8 @@ private:
     int partition(int low, int high); 
     // Internal recursive function
     void QuicksortRecursive(int low, int high); 
+    void MregesortRecursive(int left_index, int right_index); 
+    void Merge(int left_index, int mid_index, int right_index);
 
 public:
     ArrayStack(int size);
@@ -29,4 +31,5 @@ public:
     
     // Public Quick Sort that automatically sorts the whole stack
     void Quicksort(); 
+    void Mergesort();
 };

@@ -143,3 +143,32 @@ void ArrayStack::Quicksort() {
     std::cout << "Sorting the array with Quick Sort...\n";
     QuicksortRecursive(0, topIndex);
 }
+void ArrayStack::Merge(int left_index, int mid_index, int right_index) {
+
+    int size_left = mid_index - left_index + 1;
+    int size_right = right_index - mid_index;
+    
+    int* LeftArray = new int[size_left];
+    int* RightArray = new int[size_right];
+
+    for (int i = 0; i < size_left;i++) {
+        LeftArray[i] = arr[left_index + i]; 
+    }
+    for (int i = 0; i < size_right;i++) {
+        RightArray[i] = arr[right_index + i]; 
+    }
+
+
+}
+void ArrayStack::MregesortRecursive(int left_index, int right_index) {
+
+    if (left_index >= right_index) {
+        return;
+    }
+    int mid_index = left_index + (right_index - left_index) / 2
+}
+void ArrayStack::Mergesort() {
+    if (isEmpty()) return;
+    std::cout << "Sorting the array with Merge Sort...\n";
+    MregesortRecursive(0, topIndex);
+}

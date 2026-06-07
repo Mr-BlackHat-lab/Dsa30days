@@ -157,6 +157,34 @@ void ArrayStack::Merge(int left_index, int mid_index, int right_index) {
     for (int i = 0; i < size_right;i++) {
         RightArray[i] = arr[mid_index+ 1 + i]; 
     }
+    
+    int i = 0; // left array
+    int j = 0; // right array
+    int k = 0; // main array
+
+    while (i < size_left && j < size_right) {
+        if (LeftArray[i] <= RightArray[j]) {
+            arr[k] = LeftArray[i];
+            i++;
+        }
+        else {
+            arr[k] = RightArray[j];
+            j++;
+        }
+        k++;
+    }
+    while (i < size_left) {
+        arr[k] = LeftArray[i];
+        i++;
+        k++;
+    }
+    while (j < size_right) {
+        arr[k] = RightArray[j];
+        j++;
+        k++;
+    }
+    delete[] LeftArray;
+    delete[] RightArray;
 
 
 }

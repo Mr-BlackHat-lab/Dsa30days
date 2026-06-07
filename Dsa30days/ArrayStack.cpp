@@ -155,7 +155,7 @@ void ArrayStack::Merge(int left_index, int mid_index, int right_index) {
         LeftArray[i] = arr[left_index + i]; 
     }
     for (int i = 0; i < size_right;i++) {
-        RightArray[i] = arr[right_index + i]; 
+        RightArray[i] = arr[mid_index+ 1 + i]; 
     }
 
 
@@ -165,7 +165,11 @@ void ArrayStack::MregesortRecursive(int left_index, int right_index) {
     if (left_index >= right_index) {
         return;
     }
-    int mid_index = left_index + (right_index - left_index) / 2
+    int mid_index = left_index + (right_index - left_index) / 2;
+    MregesortRecursive(left_index, mid_index);
+    MregesortRecursive(mid_index+1, right_index);
+
+    Merge(left_index, mid_index, right_index);
 }
 void ArrayStack::Mergesort() {
     if (isEmpty()) return;

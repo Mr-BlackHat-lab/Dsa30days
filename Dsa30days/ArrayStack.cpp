@@ -160,7 +160,7 @@ void ArrayStack::Merge(int left_index, int mid_index, int right_index) {
     
     int i = 0; // left array
     int j = 0; // right array
-    int k = 0; // main array
+    int k = left_index; // main array
 
     while (i < size_left && j < size_right) {
         if (LeftArray[i] <= RightArray[j]) {

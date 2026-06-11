@@ -207,9 +207,19 @@ void ArrayStack::Mergesort() {
 
 void ArrayStack::CountingSort(int range_x, int range_y) {
     int* k = new int[range_y - range_x+1]();
+    int arrIndex = 0;
     for (int i = 0; i <= topIndex; i++) {
         k[arr[i] - range_x] += 1;
-        
+
     }
+    for (int i = 0; i < range_y - range_x + 1; i++){
+        if (k[i] != 0) {
+            for (int j = 0; j < k[i];j++) {
+                arr[arrIndex] = i + range_x;
+                arrIndex++;
+            }
+        }
+    }
+	delete[] k;
 
 }

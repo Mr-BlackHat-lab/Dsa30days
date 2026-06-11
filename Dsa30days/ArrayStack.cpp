@@ -204,3 +204,16 @@ void ArrayStack::Mergesort() {
     std::cout << "Sorting the array with Merge Sort...\n";
     MregesortRecursive(0, topIndex);
 }
+
+void ArrayStack::CountingSort(int range_x, int range_y) {
+    int* k = new int[range_y - range_x+1];
+    for (int i = 0; i <= topIndex; i++) {
+        if (k[arr[i] - range_x] <= 0) {
+            k[arr[i] - range_x] = 1;
+        }
+        else {
+			k[arr[i] - range_x] += 1;
+        }
+    }
+
+}

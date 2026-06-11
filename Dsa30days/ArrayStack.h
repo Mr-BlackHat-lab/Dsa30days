@@ -28,6 +28,7 @@ public:
     void BubbleSort();
     void SelectionSort();
     void InsertionSort();
+    void CountingSort(int range_x, int range_y);
     
     // Public Quick Sort that automatically sorts the whole stack
     void Quicksort(); 

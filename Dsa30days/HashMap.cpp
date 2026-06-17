@@ -2,7 +2,8 @@
 #include "HashMap.h"
 #include <vector>
 
-HashMap::HashMap(int bucketCount) {
+HashMap::HashMap(int size) {
+	bucketCount = size;
 	buckets.resize(bucketCount, nullptr);
 }
 HashMap::~HashMap() {

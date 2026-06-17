@@ -11,7 +11,7 @@ private:
 	std::vector <Node*> buckets;//done
 	int hashFunctionMod(int value) const; //done
 public:
-	HashMap(int bucketCount); //done
+	HashMap(int size); //done
 	~HashMap(); //done
 	void insert(int value);//done
 	bool search(int value) const;//done

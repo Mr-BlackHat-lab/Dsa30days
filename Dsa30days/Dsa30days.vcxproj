@@ -123,9 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
-    <ClCompile Include="Dsa30days.cpp" />
     <ClCompile Include="HashMap.cpp" />
     <ClCompile Include="LinkedListQueue.cpp" />
     <ClCompile Include="LinkListBTree.cpp" />

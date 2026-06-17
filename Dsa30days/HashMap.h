@@ -7,13 +7,15 @@ struct Node
 };
 class HashMap {
 private:
-	std::vector <Node*> buckets;
-	int hashFunctionMod(int value) const;
+	int bucketCount;
+	std::vector <Node*> buckets;//done
+	int hashFunctionMod(int value) const; //done
 public:
-	HashMap(int bucketCount);
-	~HashMap();
-	void insert(int value);
-	bool search(int value) const;
-	bool isEmpty() const;
-	void remove(int value);
+	HashMap(int bucketCount); //done
+	~HashMap(); //done
+	void insert(int value);//done
+	bool search(int value) const;//done
+	bool isEmpty() const; //done
+	void remove(int value);//done
+	void view() const;
 };

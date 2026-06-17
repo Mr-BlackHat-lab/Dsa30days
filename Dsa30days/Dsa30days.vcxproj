@@ -126,6 +126,7 @@
     <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
     <ClCompile Include="Dsa30days.cpp" />
+    <ClCompile Include="HashMap.cpp" />
     <ClCompile Include="LinkedListQueue.cpp" />
     <ClCompile Include="LinkListBTree.cpp" />
     <ClCompile Include="LInklistStack.cpp" />
@@ -133,9 +134,13 @@
   <ItemGroup>
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="ArrayQueue.h" />
+    <ClInclude Include="HashMap.h" />
     <ClInclude Include="LinkedListQueue.h" />
     <ClInclude Include="LinkedlistStack.h" />
     <ClInclude Include="LinkListBTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Dsa30days.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

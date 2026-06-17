@@ -139,9 +139,6 @@
     <ClInclude Include="LinkedlistStack.h" />
     <ClInclude Include="LinkListBTree.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Dsa30days.rc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

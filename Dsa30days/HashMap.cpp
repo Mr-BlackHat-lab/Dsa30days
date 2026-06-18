@@ -3,6 +3,8 @@
 #include <vector>
 
 HashMap::HashMap(int size) {
+	load_factor = 0;
+	data_count = 0;
 	bucketCount = size;
 	buckets.resize(bucketCount, nullptr);
 }
@@ -43,23 +45,31 @@ bool HashMap::search(int value) const {
 		return false;
 	}
 }
-
+float HashMap::load_factor_calculator() {
+	load_factor = bucketCount / data_count;
+	return load_factor;
+}
 void HashMap::insert(int value){
 	if (search(value)) {
 		std::cout << "Error! the given value :"<<value<<" already exist in data\n";
 		return;
 	}
+	
 	Node* newNode = new Node();
 	int index = hashFunctionMod(value);
 
 	newNode->data = value;
 	newNode->next = nullptr;
-
+	load_factor_calculator();
+	if (load_factor >= 2) {
+		//resize the vector double it and re insert the data or call resize
+	}
 
 	Node* temp = buckets[index];
 	newNode->next = temp;
 	buckets[index] = newNode;
 	std::cout << "Succssefully! insert the value :" << value << " in HashMap\n";
+	data_count++;
 
 
 	//insert at back 

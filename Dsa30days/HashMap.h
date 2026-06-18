@@ -7,7 +7,10 @@ struct Node
 };
 class HashMap {
 private:
+	int data_count;
+	float load_factor;
 	int bucketCount;
+	float load_factor_calculator();
 	std::vector <Node*> buckets;//done
 	int hashFunctionMod(int value) const; //done
 public:

@@ -9,7 +9,7 @@
 using namespace std;
 int main()
 {
-    HashMap myMap(10);
+    HashMap myMap(5);
 
     cout << "--- 1. Testing Insertions (Forcing Collisions) ---\n";
     myMap.insert(5);

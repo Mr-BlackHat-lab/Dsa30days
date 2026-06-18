@@ -10,7 +10,8 @@ private:
 	int data_count;
 	float load_factor;
 	int bucketCount;
-	float load_factor_calculator();
+	float load_factor_calculator_runner();
+	void resizer();
 	std::vector <Node*> buckets;//done
 	int hashFunctionMod(int value) const; //done
 public:

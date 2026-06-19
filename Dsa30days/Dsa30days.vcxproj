@@ -135,6 +135,7 @@
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="HashMap.h" />
+    <ClInclude Include="LinearPtobing.h" />
     <ClInclude Include="LinkedListQueue.h" />
     <ClInclude Include="LinkedlistStack.h" />
     <ClInclude Include="LinkListBTree.h" />

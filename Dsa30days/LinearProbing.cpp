@@ -29,23 +29,24 @@ bool LinearProbing::isEmpty() const{
 }
 bool LinearProbing::search(int value) {
 	int index = hashFucnction(value);
-	if (buckets[index]!= -1) {
+	if (buckets[index] != -1) {
 		if (buckets[index] == value) {
 			return true;
 		}
-		else {
+	}
+	else {
+		index++;
+		while (buckets[index] != -1) {
+			if (buckets[index] == value) {
+				return true;
+			}
 			index++;
-			while (buckets[index] == -1) {
-				if (buckets[index] == value) {
-					return true;
-				}
-				index++;
-				if (index >= bucketsize) {
-					index = 0;
-				}
+			if (index >= bucketsize) {// it won't for infinit loop because the load factor is 0.5 max so it will always find -1 in vector
+				index = 0;
 			}
 		}
 	}
+
 	return false;
 }
 void LinearProbing::reshape() {
@@ -88,4 +89,30 @@ void LinearProbing::insert(int value) {
 	buckets[index] = value;
 	data_count+=1;
 	std::cout << "value:"<<value<<" sucssesfully inserted\n";
+}
+void LinearProbing::remove(int value) {
+	int index = hashFucnction(value);
+	if (buckets[index] != -1) {
+		if (buckets[index] == value) {
+			buckets[index] = -1;
+			std::cout << "vlaue:"<<value<< " sucssesfully removed\n";
+			return;
+		}
+	}
+	else {
+		index++;
+		while (buckets[index] != -1) {
+			if (buckets[index] == value) {
+				buckets[index] = -1;
+				std::cout << "vlaue:" << value << " sucssesfully removed\n";
+				return;
+			}
+			index++;
+			if (index >= bucketsize) {// it won't for infinit loop because the load factor is 0.5 max so it will always find -1 in vector
+				index = 0;
+			}
+		}
+	}
+	std::cout << "value:"<<value<< " dosen't exist\n";
+	return;
 }

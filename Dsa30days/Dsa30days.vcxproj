@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LinearProbing.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
@@ -135,7 +136,7 @@
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="HashMap.h" />
-    <ClInclude Include="LinearPtobing.h" />
+    <ClInclude Include="LinearProbing.h" />
     <ClInclude Include="LinkedListQueue.h" />
     <ClInclude Include="LinkedlistStack.h" />
     <ClInclude Include="LinkListBTree.h" />

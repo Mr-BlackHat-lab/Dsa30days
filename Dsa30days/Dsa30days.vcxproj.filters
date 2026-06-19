@@ -36,6 +36,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LinearProbing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStack.h">
@@ -56,7 +59,7 @@
     <ClInclude Include="HashMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LinearPtobing.h">
+    <ClInclude Include="LinearProbing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

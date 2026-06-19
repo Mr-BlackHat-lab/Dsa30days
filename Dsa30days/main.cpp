@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "HashMap.h"
+//#include "HashMap.h"
 //#include "ArrayStack.h"
 //#include "LinkedlistStack.h"
 //#include "ArrayQueue.h"
@@ -9,32 +9,30 @@
 using namespace std;
 int main()
 {
-    HashMap myMap(5);
 
-    cout << "--- 1. Testing Insertions (Forcing Collisions) ---\n";
-    myMap.insert(5);
-    myMap.insert(15); // Will collide with 5
-    myMap.insert(25); // Will collide with 5 and 15
-    myMap.insert(42); // Will go to bucket 2
-    myMap.insert(42); // Testing your duplicate check
 
-    cout << "\n--- 2. Viewing the Hash Map ---\n";
-    myMap.view();
 
-    cout << "\n--- 3. Testing Search ---\n";
-    if (myMap.search(15)) {
-        cout << "Success: 15 was found in the map!\n";
-    }
-    else {
-        cout << "Error: 15 is missing!\n";
-    }
-
-    cout << "\n--- 4. Testing Removal ---\n";
-    myMap.remove(15); // Removing a middle node from the chain
-    myMap.remove(99); // Testing removal of a non-existent value
-
-    cout << "\n--- 5. Final Hash Map State ---\n";
-    myMap.view();
+    //HashMap myMap(5);
+    //cout << "--- 1. Testing Insertions (Forcing Collisions) ---\n";
+    //myMap.insert(5);
+    //myMap.insert(15); // Will collide with 5
+    //myMap.insert(25); // Will collide with 5 and 15
+    //myMap.insert(42); // Will go to bucket 2
+    //myMap.insert(42); // Testing your duplicate check
+    //cout << "\n--- 2. Viewing the Hash Map ---\n";
+    //myMap.view();
+    //cout << "\n--- 3. Testing Search ---\n";
+    //if (myMap.search(15)) {
+    //    cout << "Success: 15 was found in the map!\n";
+    //}
+    //else {
+    //    cout << "Error: 15 is missing!\n";
+    //}
+    //cout << "\n--- 4. Testing Removal ---\n";
+    //myMap.remove(15); // Removing a middle node from the chain
+    //myMap.remove(99); // Testing removal of a non-existent value
+    //cout << "\n--- 5. Final Hash Map State ---\n";
+    //myMap.view();
 
     //ArrayStack mystack(9);
     //mystack.push(4);

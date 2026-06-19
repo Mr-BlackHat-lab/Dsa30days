@@ -15,7 +15,7 @@ public:
 	bool search(int value);//done
 	int hashFucnction(int value);//done
 	void reshape();// done
-	void reshape_caller();
+	void reshape_caller();//done
 	void insert(int value);
 	void remove(int value);
 	void traver();

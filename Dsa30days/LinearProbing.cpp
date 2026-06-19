@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "LinearProbing.h"
 
 LinearProbing::LinearProbing(int size) {
@@ -51,12 +52,19 @@ void LinearProbing::reshape() {
 			tempVector.push_back(val);
 		}
 	}
-	buckets.resize(bucketsize, -1);//bucketsize increase in reshape_caller befor calling it & data_count = 0 also
+	buckets.resize(bucketsize, -1);//bucketsize increase in reshape_caller befor calling it 
+	data_count = 0;
 	for (int val : tempVector) {
 		insert(val);
 	}
 	tempVector.clear();
 }
-void LinearProbing::reshape_caller() {
+void LinearProbing::reshape_caller() { // call this after everytime you insert data 
+	load_factor = float(data_count / bucketsize);
+	if (load_factor > 0.5) {
+		std::cout << "triggerd reshape because load factor:"<<load_factor<<" is greater than 0.5";
+		bucketsize = bucketsize * 2;
+		reshape();
+	}
 
 }

@@ -16,7 +16,7 @@ public:
 	int hashFucnction(int value);//done
 	void reshape();// done
 	void reshape_caller();//done
-	void insert(int value);
-	void remove(int value);
-	void traver();
+	void insert(int value);//done
+	void remove(int value);//done
+	void traver() const;//done
 };

@@ -118,3 +118,14 @@ void LinearProbing::remove(int value) {
 	std::cout << "value:"<<value<< " dosen't exist\n";
 	return;
 }
+void LinearProbing::traver() const{
+	if (isEmpty()) {
+		std::cout << "can't traversal!! there is no data\n";
+	}
+	for (int i = 0; i < bucketsize;i++) {
+		if (buckets[i] != -1) {
+			std::cout<<"bucket "<<i<<":" << buckets[i] << "\n";
+		}
+		std::cout << "bucket " << i << ":" << "\n";
+	}
+}

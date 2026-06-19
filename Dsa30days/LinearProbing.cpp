@@ -35,11 +35,14 @@ bool LinearProbing::search(int value) {
 		}
 		else {
 			index++;
-			while (buckets[index] == -1 && index < bucketsize) {
+			while (buckets[index] == -1) {
 				if (buckets[index] == value) {
 					return true;
 				}
 				index++;
+				if (index >= bucketsize) {
+					index = 0;
+				}
 			}
 		}
 	}
@@ -58,11 +61,12 @@ void LinearProbing::reshape() {
 		insert(val);
 	}
 	tempVector.clear();
+	std::cout << "reshape is sucssefully done new load_factor: " << float(data_count / bucketsize)<<"\n";
 }
 void LinearProbing::reshape_caller() { // call this after everytime you insert data 
 	load_factor = float(data_count / bucketsize);
 	if (load_factor > 0.5) {
-		std::cout << "triggerd reshape because load factor:"<<load_factor<<" is greater than 0.5";
+		std::cout << "triggerd reshape because load factor:"<<load_factor<<" is greater than 0.5\n";
 		bucketsize = bucketsize * 2;
 		reshape();
 	}
@@ -71,16 +75,17 @@ void LinearProbing::reshape_caller() { // call this after everytime you insert d
 void LinearProbing::insert(int value) {
 	int index = hashFucnction(value);
 
-		while (buckets[index] != -1) {
-			if (buckets[index] == value) {
-				std::cout << "value:" << value << " already eixst!! duplicate value is not allowed";
-				return;
-			}
-			index++;
+	while (buckets[index] != -1) {
+		if (buckets[index] == value) {
+			std::cout << "value:" << value << " already eixst!! duplicate value is not allowed\n";
+			return;
 		}
-		buckets[index] = value;
-		data_count+=1;
-
-	
-	std::cout << "value:"<<value<<" already eixst!! duplicate value is not allowed";
+		index++;
+		if (index >= bucketsize) {
+			index = 0;
+		}
+	}
+	buckets[index] = value;
+	data_count+=1;
+	std::cout << "value:"<<value<<" sucssesfully inserted\n";
 }

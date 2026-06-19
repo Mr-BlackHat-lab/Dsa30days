@@ -96,6 +96,7 @@ void LinearProbing::remove(int value) {
 		if (buckets[index] == value) {
 			buckets[index] = -1;
 			std::cout << "vlaue:"<<value<< " sucssesfully removed\n";
+			data_count--;
 			return;
 		}
 	}
@@ -105,6 +106,7 @@ void LinearProbing::remove(int value) {
 			if (buckets[index] == value) {
 				buckets[index] = -1;
 				std::cout << "vlaue:" << value << " sucssesfully removed\n";
+				data_count--;
 				return;
 			}
 			index++;

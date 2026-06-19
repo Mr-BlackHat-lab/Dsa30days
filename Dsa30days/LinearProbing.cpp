@@ -68,3 +68,19 @@ void LinearProbing::reshape_caller() { // call this after everytime you insert d
 	}
 
 }
+void LinearProbing::insert(int value) {
+	int index = hashFucnction(value);
+
+		while (buckets[index] != -1) {
+			if (buckets[index] == value) {
+				std::cout << "value:" << value << " already eixst!! duplicate value is not allowed";
+				return;
+			}
+			index++;
+		}
+		buckets[index] = value;
+		data_count+=1;
+
+	
+	std::cout << "value:"<<value<<" already eixst!! duplicate value is not allowed";
+}

@@ -9,12 +9,12 @@ private:
 	float load_factor;
 	int data_count;
 public:
-	LinearProbing(int size);
-	~LinearProbing();
-	bool isEmpty() const;
-	bool search(int value) const;
-	int hashFucnction(int value);
-	void reshape();
+	LinearProbing(int size);//done
+	~LinearProbing();//done
+	bool isEmpty() const;// done
+	bool search(int value);//done
+	int hashFucnction(int value);//done
+	void reshape();// done
 	void reshape_caller();
 	void insert(int value);
 	void remove(int value);

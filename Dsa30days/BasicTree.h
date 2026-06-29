@@ -11,7 +11,12 @@ class BasicTree {
 private:
 	Node* root;
 	int node_count;
+	//helper functions
 	void destroy(Node* node); //done
+	void inOrderHelper(Node* node) const;
+	void preOrderHelper(Node* node) const;
+	void postOrderHelper(Node* node) const;
+	int heightHelper(Node* node) const;
 public:
 	
 	BasicTree();//done

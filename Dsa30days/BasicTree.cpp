@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <queue>
-#include <string>
+#include <algorithm>
 #include "BasicTree.h"
 
 BasicTree::BasicTree() {
@@ -151,5 +151,43 @@ void BasicTree::peek_root() const {
 		return;
 	}
 	throw std::runtime_error("Tree is Empty");
+}
+
+
+
+
+void BasicTree::preOrderHelper(Node* node) const{
+	if (node == nullptr)return;
+	std::cout << node->data<<" ";
+	preOrderHelper(node->left);
+	preOrderHelper(node->right);
+}
+void BasicTree::traversePreOrder() const {
+	preOrderHelper(root);
+	std::cout << "\n";
+}
+
+
+void BasicTree::inOrderHelper(Node* node) const {
+	if (node == nullptr)return;
+	inOrderHelper(node->left);
+	std::cout << node->data << " ";
+	inOrderHelper(node->right);
+}
+void BasicTree::traverseInOrder() const{
+	inOrderHelper(root);
+	std::cout << "\n";
+}
+
+
+void BasicTree::postOrderHelper(Node* node) const {
+	if (node == nullptr)return;
+	postOrderHelper(node->left);
+	postOrderHelper(node->right);
+	std::cout << node->data << " ";
+}
+void BasicTree::traversePostOrder() const {
+	postOrderHelper(root);
+	std::cout << "\n";
 }
 

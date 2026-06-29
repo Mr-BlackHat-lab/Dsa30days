@@ -14,4 +14,7 @@ void BasicTree::destroy(Node* node) {
 	destroy(node->right);
 	delete node;
 }
+bool BasicTree::isEmpty() const {
+	return(root == nullptr);
+}
 

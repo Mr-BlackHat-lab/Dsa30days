@@ -11,13 +11,13 @@ class BasicTree {
 private:
 	Node* root;
 	int node_count;
-	void destroy(Node* node);
+	void destroy(Node* node); //done
 public:
 	
-	BasicTree();
-	~BasicTree();
+	BasicTree();//done
+	~BasicTree();//done
 
-	bool isEmpty() const;
+	bool isEmpty() const;//done
 
 	//core operation
     void insert(int value);

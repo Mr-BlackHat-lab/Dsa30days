@@ -20,7 +20,7 @@ public:
 	bool isEmpty() const;//done
 
 	//core operation
-    void insert(int value);
+    void insert(int value);//done
     void remove(int value);
     bool search(int value) const;
 

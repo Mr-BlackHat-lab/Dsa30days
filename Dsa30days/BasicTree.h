@@ -11,6 +11,7 @@ class BasicTree {
 private:
 	Node* root;
 	int node_count;
+	void destroy(Node* node);
 public:
 	
 	BasicTree();

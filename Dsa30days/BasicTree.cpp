@@ -60,7 +60,7 @@ void BasicTree::insert(int value) {
 			temp->right = newNode;
 			newNode->parent = temp;
 			node_count++;
-			std::cout << "Value: " << value << " inserted successfully as LEFT child of " << temp->data << "\n";
+			std::cout << "Value: " << value << " inserted successfully as RIGHT child of " << temp->data << "\n";
 			return;
 		}
 		else {

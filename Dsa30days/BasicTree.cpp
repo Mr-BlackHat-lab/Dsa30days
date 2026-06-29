@@ -153,7 +153,15 @@ void BasicTree::peek_root() const {
 	throw std::runtime_error("Tree is Empty");
 }
 
-
+int BasicTree::heightHelper(Node* node) const {
+	if (node == nullptr) return 0;
+	int left_height = heightHelper(node->left);
+	int right_height = heightHelper(node->right);
+	return std::max(left_height, right_height) + 1;
+}
+int BasicTree::treeHeight() const {
+	return heightHelper(root);
+}
 
 
 void BasicTree::preOrderHelper(Node* node) const{

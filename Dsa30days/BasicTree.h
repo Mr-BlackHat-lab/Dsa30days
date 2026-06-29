@@ -21,8 +21,8 @@ public:
 
 	//core operation
     void insert(int value);//done
-    void remove(int value);
-    bool search(int value) const;
+    void remove(int value);//done
+    bool search(int value) const;//done
 
     // Utilities
     void peek_root() const;//done

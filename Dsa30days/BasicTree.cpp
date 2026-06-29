@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <queue>
+#include <string>
 #include "BasicTree.h"
 
 BasicTree::BasicTree() {
@@ -24,6 +25,10 @@ bool BasicTree::isEmpty() const {
 
 
 void BasicTree::insert(int value) {
+	if (search(value)) {
+		std::cout << "value:" << value << " already exist!! not inserted";
+		return;
+	}
 	Node* newNode = new Node();
 	newNode->data = value;
 	newNode->left = newNode->right =newNode->parent = nullptr;
@@ -62,6 +67,81 @@ void BasicTree::insert(int value) {
 			q.push(temp->right);
 		}
 	}
+}
+void BasicTree::remove(int value) {
+
+	if (!search(value)) {
+		std::cout << "value:" << value << " not found";
+		return;
+	}
+	Node* temp = root;
+	if (temp->left == nullptr && temp->right == nullptr) {
+		if (temp->data == value) {
+			root = nullptr;
+			node_count--;
+			delete temp;
+			std::cout << "value:" << value << " removed sucssesfully\n";
+			return;
+		}
+	}
+
+	std::queue<Node*> q;
+	q.push(root);
+
+	// i need two thing from this loop location of vlaue and last pushed node;
+	Node* value_node = nullptr;
+	Node* last_pushed_node = nullptr;
+
+
+	while (!q.empty()) {
+		temp = q.front();
+		q.pop();
+		last_pushed_node = temp;
+		if (temp->data == value) {
+			value_node = temp;
+		}
+		if (temp->left != nullptr) {
+			q.push(temp->left);
+		}
+		if (temp->right != nullptr) {
+			q.push(temp->right);
+		}
+	}
+	value_node->data = last_pushed_node->data;
+	temp = last_pushed_node->parent;
+	if (temp->left == last_pushed_node) {
+		temp->left = nullptr;
+	}
+	if (temp->right == last_pushed_node) {
+		temp->right = nullptr;
+	}
+	node_count--;
+	delete last_pushed_node;
+	std::cout<< "value:" << value << " removed sucssesfully\n";
+
+}
+
+bool BasicTree::search(int value) const {
+	if (isEmpty()) {
+		return false;
+	}
+	std::queue<Node*> q;
+	q.push(root);
+	while (!q.empty()) {
+		Node* temp = q.front();
+		q.pop();
+		if (temp->data == value) {
+			return true;
+		}
+		if (temp->left != nullptr) {
+			q.push(temp->left);
+		}
+		if (temp->right != nullptr) {
+			q.push(temp->right);
+		}
+	}
+	return false;
+
 }
 
 

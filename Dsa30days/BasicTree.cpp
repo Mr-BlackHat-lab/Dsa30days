@@ -18,3 +18,11 @@ bool BasicTree::isEmpty() const {
 	return(root == nullptr);
 }
 
+void BasicTree::peek_root() const {
+	if (!isEmpty()) {
+		std::cout << "Root value:" << root->data << " \n";
+		return;
+	}
+	throw std::runtime_error("Tree is Empty");
+}
+

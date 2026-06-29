@@ -25,7 +25,7 @@ public:
     bool search(int value) const;
 
     // Utilities
-    void peek_root() const;
+    void peek_root() const;//done
     int treeHeight() const;
 
     // Trees have 3 distinct ways to traverse!

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "LinearProbing.h"
+//#include "LinearProbing.h"
 //#include "HashMap.h"
 //#include "ArrayStack.h"
 //#include "LinkedlistStack.h"
@@ -11,27 +11,23 @@ using namespace std;
 int main()
 {
 
-    LinearProbing lp(5);
-
-    std::cout << "--- 1. Testing Insertions and Collisions ---\n";
-    // Assuming size 5, these will all hash to index 0, forcing a probe chain
-    lp.insert(5);  // Goes to 0
-    lp.insert(10); // Collides at 0, probes to 1
-    lp.insert(15); // Collides at 0 & 1, probes to 2
-
-    std::cout << "\n--- 2. Testing Tombstones (Lazy Deletion) ---\n";
-    lp.remove(10); // Deletes 10 (at index 1), turning it into a Tombstone
-
-    // If tombstones work, searching for 15 will skip over index 1 and still find it at index 2!
-    if (lp.search(15)) {
-        std::cout << "Success: 15 was found despite the Tombstone!\n";
-    }
-    else {
-        std::cout << "Fail: Tombstone broke the search chain!\n";
-    }
-
-    std::cout << "\n--- 3. Viewing the State ---\n";
-    lp.traver();
+    //LinearProbing lp(5);
+    //std::cout << "--- 1. Testing Insertions and Collisions ---\n";
+    //// Assuming size 5, these will all hash to index 0, forcing a probe chain
+    //lp.insert(5);  // Goes to 0
+    //lp.insert(10); // Collides at 0, probes to 1
+    //lp.insert(15); // Collides at 0 & 1, probes to 2
+    //std::cout << "\n--- 2. Testing Tombstones (Lazy Deletion) ---\n";
+    //lp.remove(10); // Deletes 10 (at index 1), turning it into a Tombstone
+    //// If tombstones work, searching for 15 will skip over index 1 and still find it at index 2!
+    //if (lp.search(15)) {
+    //    std::cout << "Success: 15 was found despite the Tombstone!\n";
+    //}
+    //else {
+    //    std::cout << "Fail: Tombstone broke the search chain!\n";
+    //}
+    //std::cout << "\n--- 3. Viewing the State ---\n";
+    //lp.traver();
 
     //HashMap myMap(5);
     //cout << "--- 1. Testing Insertions (Forcing Collisions) ---\n";

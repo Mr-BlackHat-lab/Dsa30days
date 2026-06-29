@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="ArrayQueue.h" />
+    <ClInclude Include="BasicTree.h" />
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="LinearProbing.h" />
     <ClInclude Include="LinkedListQueue.h" />

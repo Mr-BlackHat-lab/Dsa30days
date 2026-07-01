@@ -15,6 +15,7 @@ private:
 	void destroy(Node* node);
 
 	Node* insertHelper(Node* node, int value);
+	Node* removeHelper(Node* node, int value);
 
 	int heightHelper(Node* node) const;
 

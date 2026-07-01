@@ -1,6 +1,7 @@
 #include <iostream>
 
-#include "BasicTree.h"
+#include "BinaryTree.h"
+//#include "BasicTree.h"
 //#include "LinearProbing.h"
 //#include "HashMap.h"
 //#include "ArrayStack.h"
@@ -12,66 +13,58 @@ using namespace std;
 int main()
 {
 
-    BasicTree tree;
 
-    std::cout << "--- 1. Testing Complete Tree Insertions (BFS) ---\n";
-    // This will build a perfectly balanced complete tree:
-    //         1
-    //       /   \
-    //      2     3
-    //     / \   / \
-    //    4   5 6   7
-    tree.insert(1); // Root
-    tree.insert(2); // Left of 1
-    tree.insert(3); // Right of 1
-    tree.insert(4); // Left of 2
-    tree.insert(5); // Right of 2
-    tree.insert(6); // Left of 3
-    tree.insert(7); // Right of 3
 
-    std::cout << "\n--- 2. Testing Recursive Traversals ---\n";
-
-    std::cout << "Pre-Order  (Expected: 1 2 4 5 3 6 7): \n";
-    tree.traversePreOrder();
-
-    std::cout << "In-Order   (Expected: 4 2 5 1 6 3 7): \n";
-    tree.traverseInOrder();
-
-    std::cout << "Post-Order (Expected: 4 5 2 6 7 3 1): \n";
-    tree.traversePostOrder();
-
-    std::cout << "\n--- 3. Testing Tree Info ---\n";
-    std::cout << "Tree Height (Expected: 3): " << tree.treeHeight() << "\n";
-    tree.peek_root();
-
-    std::cout << "\n--- 4. Testing BFS Search ---\n";
-    if (tree.search(5)) {
-        std::cout << "Success! Found 5 in the tree.\n";
-    }
-    if (!tree.search(99)) {
-        std::cout << "Success! 99 was correctly NOT found.\n";
-    }
-
-    std::cout << "\n--- 5. Testing 'Swap with Last Node' Deletion ---\n";
-    // The last node inserted was 7. 
-    // If we delete 2, the value 7 should overwrite 2, and the physical node 7 should disappear.
-    // New Tree structure should look like this:
-    //         1
-    //       /   \
-    //      7     3
-    //     / \   / 
-    //    4   5 6   
-    tree.remove(2);
-
-    std::cout << "\n--- 6. Post-Deletion Verification ---\n";
-    std::cout << "In-Order   (Expected: 4 7 5 1 6 3): \n";
-    tree.traverseInOrder();
-    std::cout << "Tree Height (Expected: 3): " << tree.treeHeight() << "\n";
-
-    // Deleting the root (1) should replace it with the new last node (6)
-    tree.remove(1);
-    std::cout << "Root after deleting 1:\n";
-    tree.peek_root(); // Should be 6!
+    //BasicTree tree;
+    //std::cout << "--- 1. Testing Complete Tree Insertions (BFS) ---\n";
+    //// This will build a perfectly balanced complete tree:
+    ////         1
+    ////       /   \
+    ////      2     3
+    ////     / \   / \
+    ////    4   5 6   7
+    //tree.insert(1); // Root
+    //tree.insert(2); // Left of 1
+    //tree.insert(3); // Right of 1
+    //tree.insert(4); // Left of 2
+    //tree.insert(5); // Right of 2
+    //tree.insert(6); // Left of 3
+    //tree.insert(7); // Right of 3
+    //std::cout << "\n--- 2. Testing Recursive Traversals ---\n";
+    //std::cout << "Pre-Order  (Expected: 1 2 4 5 3 6 7): \n";
+    //tree.traversePreOrder();
+    //std::cout << "In-Order   (Expected: 4 2 5 1 6 3 7): \n";
+    //tree.traverseInOrder();
+    //std::cout << "Post-Order (Expected: 4 5 2 6 7 3 1): \n";
+    //tree.traversePostOrder();
+    //std::cout << "\n--- 3. Testing Tree Info ---\n";
+    //std::cout << "Tree Height (Expected: 3): " << tree.treeHeight() << "\n";
+    //tree.peek_root();
+    //std::cout << "\n--- 4. Testing BFS Search ---\n";
+    //if (tree.search(5)) {
+    //    std::cout << "Success! Found 5 in the tree.\n";
+    //}
+    //if (!tree.search(99)) {
+    //    std::cout << "Success! 99 was correctly NOT found.\n";
+    //}
+    //std::cout << "\n--- 5. Testing 'Swap with Last Node' Deletion ---\n";
+    //// The last node inserted was 7. 
+    //// If we delete 2, the value 7 should overwrite 2, and the physical node 7 should disappear.
+    //// New Tree structure should look like this:
+    ////         1
+    ////       /   \
+    ////      7     3
+    ////     / \   / 
+    ////    4   5 6   
+    //tree.remove(2);
+    //std::cout << "\n--- 6. Post-Deletion Verification ---\n";
+    //std::cout << "In-Order   (Expected: 4 7 5 1 6 3): \n";
+    //tree.traverseInOrder();
+    //std::cout << "Tree Height (Expected: 3): " << tree.treeHeight() << "\n";
+    //// Deleting the root (1) should replace it with the new last node (6)
+    //tree.remove(1);
+    //std::cout << "Root after deleting 1:\n";
+    //tree.peek_root(); // Should be 6!
 
     //LinearProbing lp(5);
     //std::cout << "--- 1. Testing Insertions and Collisions ---\n";

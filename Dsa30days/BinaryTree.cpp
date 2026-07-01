@@ -56,3 +56,57 @@ void BinaryTree::insert(int value) {
 	std::cout << "value:" << value << " is sucssefully pushed";
 	node_count++;
 }
+void BinaryTree::peek_root() const {
+	if (!isEmpty()) {
+		std::cout << "Root value:" << root->data << " \n";
+		return;
+	}
+	std::cout<<"Tree is Empty\n";
+}
+
+int BinaryTree::heightHelper(Node* node) const {
+	if (node == nullptr) return 0;
+	int left_height = heightHelper(node->left);
+	int right_height = heightHelper(node->right);
+	return std::max(left_height, right_height) + 1;
+}
+int BinaryTree::treeHeight() const {
+	return heightHelper(root);
+}
+
+
+void BinaryTree::preOrderHelper(Node* node) const {
+	if (node == nullptr)return;
+	std::cout << node->data << " ";
+	preOrderHelper(node->left);
+	preOrderHelper(node->right);
+}
+void BinaryTree::traversePreOrder() const {
+	preOrderHelper(root);
+	std::cout << "\n";
+}
+
+
+void BinaryTree::inOrderHelper(Node* node) const {
+	if (node == nullptr)return;
+	inOrderHelper(node->left);
+	std::cout << node->data << " ";
+	inOrderHelper(node->right);
+}
+void BinaryTree::traverseInOrder() const {
+	inOrderHelper(root);
+	std::cout << "\n";
+}
+
+
+void BinaryTree::postOrderHelper(Node* node) const {
+	if (node == nullptr)return;
+	postOrderHelper(node->left);
+	postOrderHelper(node->right);
+	std::cout << node->data << " ";
+}
+void BinaryTree::traversePostOrder() const {
+	postOrderHelper(root);
+	std::cout << "\n";
+}
+

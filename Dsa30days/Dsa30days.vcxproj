@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicTree.cpp" />
+    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="LinearProbing.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ArrayQueue.cpp" />

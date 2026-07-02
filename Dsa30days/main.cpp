@@ -1,6 +1,7 @@
 #include <iostream>
 
-#include "BinaryTree.h"
+#include "AvlTree.h"
+// #include "BinaryTree.h"
 //#include "BasicTree.h"
 //#include "LinearProbing.h"
 //#include "HashMap.h"
@@ -12,69 +13,117 @@
 using namespace std;
 int main()
 {
-
-    BinaryTree tree;
-
-    std::cout << "--- 1. Testing BST Insertions ---\n";
-    // This will build the following Binary Search Tree:
-    //             50
-    //           /    \
-    //         30      70
-    //        /  \    /  \
-    //      20   40  60   80
-    //          /
-    //        35
-    tree.insert(50); // Root
+    AvlTree tree;
+    cout << "--- 1. Testing AVL Tree Insertions ---\n";
+    // Insert values that will trigger rotations
+    tree.insert(50);
+    tree.insert(25);
+    tree.insert(75);
+    tree.insert(10);
     tree.insert(30);
-    tree.insert(70);
-    tree.insert(20);
-    tree.insert(40);
     tree.insert(60);
     tree.insert(80);
-    tree.insert(35);
+    tree.insert(5);
+    tree.insert(15);
+    cout << "Inserted: 50, 25, 75, 10, 30, 60, 80, 5, 15\n";
 
-    std::cout << "\n--- 2. Testing Traversals (The Magic of BST) ---\n";
-    // If the BST rules are working, In-Order MUST print in perfectly sorted ascending order!
-    std::cout << "In-Order   (Expected: 20 30 35 40 50 60 70 80): \n";
-    tree.traverseInOrder();
+    cout << "\n--- 2. Testing Tree Info ---\n";
+    tree.peek_root();
+    tree.tree_height();
 
-    std::cout << "Pre-Order  (Expected: 50 30 20 40 35 70 60 80): \n";
-    tree.traversePreOrder();
+    cout << "\n--- 3. Testing Traversals (Self-Balancing Verification) ---\n";
+    tree.in_orderTraversal();   // Should print sorted order
+    tree.pre_orderTraversal();  // Root first
+    tree.post_orderTraversal(); // Root last
 
-    std::cout << "Post-Order (Expected: 20 35 40 30 60 80 70 50): \n";
-    tree.traversePostOrder();
-
-    std::cout << "\n--- 3. Testing Tree Info ---\n";
-    std::cout << "Tree Height (Expected: 4): " << tree.treeHeight() << "\n";
-    tree.peek_root(); // Should be 50
-
-    std::cout << "\n--- 4. Testing BST Search ---\n";
+    cout << "\n--- 4. Testing AVL Search ---\n";
+    if (tree.search(30)) {
+        cout << "Success! Found 30 in the AVL tree.\n";
+    }
     if (tree.search(60)) {
-        std::cout << "Success! Found 60 in the tree.\n";
+        cout << "Success! Found 60 in the AVL tree.\n";
     }
     if (!tree.search(99)) {
-        std::cout << "Success! 99 was correctly NOT found.\n";
+        cout << "Success! 99 was correctly NOT found.\n";
     }
 
-    std::cout << "\n--- 5. Testing 'Hibbard Deletion' (All 3 Cases) ---\n";
+    cout << "\n--- 5. Testing AVL Deletions (With Rebalancing) ---\n";
+    cout << "> Removing 5 (Leaf Node)...\n";
+    tree.remove(5);
+    tree.in_orderTraversal();
 
-    std::cout << "> Case 1 (Leaf Node): Removing 20...\n";
-    tree.remove(20);
+    cout << "\n> Removing 10 (One Child)...\n";
+    tree.remove(10);
+    tree.in_orderTraversal();
 
-    std::cout << "> Case 2 (One Child): Removing 40 (Has left child 35)...\n";
-    tree.remove(40);
+    cout << "\n> Removing 25 (Two Children)...\n";
+    tree.remove(25);
+    tree.in_orderTraversal();
 
-    std::cout << "> Case 3 (Two Children): Removing Root 50...\n";
-    // The successor of 50 is 60 (smallest on the right side). 
-    // 60 should steal 50's data, and the original 60 node should be deleted!
-    tree.remove(50);
-
-    std::cout << "\n--- 6. Post-Deletion Verification ---\n";
-    std::cout << "In-Order   (Expected: 30 35 60 70 80): \n";
-    tree.traverseInOrder();
-
-    std::cout << "Root after deleting 50 (Expected: 60):\n";
+    cout << "\n--- 6. Post-Deletion Tree Info ---\n";
     tree.peek_root();
+    tree.tree_height();
+    tree.in_orderTraversal();
+
+    cout << "\n--- 7. Testing Empty Tree Operations ---\n";
+    AvlTree emptyTree;
+    if (emptyTree.isEmpty()) {
+        cout << "Empty tree confirmed as empty.\n";
+    }
+    emptyTree.peek_root();
+    emptyTree.tree_height();
+    emptyTree.in_orderTraversal();
+
+    // BinaryTree tree;
+    // std::cout << "--- 1. Testing BST Insertions ---\n";
+    // // This will build the following Binary Search Tree:
+    // //             50
+    // //           /    \
+    // //         30      70
+    // //        /  \    /  \
+    // //      20   40  60   80
+    // //          /
+    // //        35
+    // tree.insert(50); // Root
+    // tree.insert(30);
+    // tree.insert(70);
+    // tree.insert(20);
+    // tree.insert(40);
+    // tree.insert(60);
+    // tree.insert(80);
+    // tree.insert(35);
+    // std::cout << "\n--- 2. Testing Traversals (The Magic of BST) ---\n";
+    // // If the BST rules are working, In-Order MUST print in perfectly sorted ascending order!
+    // std::cout << "In-Order   (Expected: 20 30 35 40 50 60 70 80): \n";
+    // tree.traverseInOrder();
+    // std::cout << "Pre-Order  (Expected: 50 30 20 40 35 70 60 80): \n";
+    // tree.traversePreOrder();
+    // std::cout << "Post-Order (Expected: 20 35 40 30 60 80 70 50): \n";
+    // tree.traversePostOrder();
+    // std::cout << "\n--- 3. Testing Tree Info ---\n";
+    // std::cout << "Tree Height (Expected: 4): " << tree.treeHeight() << "\n";
+    // tree.peek_root(); // Should be 50
+    // std::cout << "\n--- 4. Testing BST Search ---\n";
+    // if (tree.search(60)) {
+    //     std::cout << "Success! Found 60 in the tree.\n";
+    // }
+    // if (!tree.search(99)) {
+    //     std::cout << "Success! 99 was correctly NOT found.\n";
+    // }
+    // std::cout << "\n--- 5. Testing 'Hibbard Deletion' (All 3 Cases) ---\n";
+    // std::cout << "> Case 1 (Leaf Node): Removing 20...\n";
+    // tree.remove(20);
+    // std::cout << "> Case 2 (One Child): Removing 40 (Has left child 35)...\n";
+    // tree.remove(40);
+    // std::cout << "> Case 3 (Two Children): Removing Root 50...\n";
+    // // The successor of 50 is 60 (smallest on the right side). 
+    // // 60 should steal 50's data, and the original 60 node should be deleted!
+    // tree.remove(50);
+    // std::cout << "\n--- 6. Post-Deletion Verification ---\n";
+    // std::cout << "In-Order   (Expected: 30 35 60 70 80): \n";
+    // tree.traverseInOrder();
+    // std::cout << "Root after deleting 50 (Expected: 60):\n";
+    // tree.peek_root();
 
 
     //BasicTree tree;

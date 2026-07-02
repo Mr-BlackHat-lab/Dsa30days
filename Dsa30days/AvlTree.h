@@ -26,10 +26,10 @@ private:
 	Node* insertHelper(Node* node, int value);
 	Node* removeHelper(Node* node, int value);
 
-	int treeheightHelper(Node* node);
-	void preorderHelper(Node* node);
-	void postorderHelper(Node* node);
-	void inorderHelper(Node* node);
+	int treeheightHelper(Node* node) const;
+	void preorderHelper(Node* node) const;
+	void postorderHelper(Node* node) const;
+	void inorderHelper(Node* node) const;
 
 public:
 	AvlTree();

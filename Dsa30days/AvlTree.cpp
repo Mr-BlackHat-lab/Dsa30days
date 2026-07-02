@@ -14,3 +14,11 @@ void AvlTree::destroy(Node* node) {
 	destroy(node->right);
 	delete node;
 }
+int AvlTree::getHeight(Node* node) {
+	if (!node) return 0;
+	return node->height;
+}
+int AvlTree::getBalanceFactor(Node* node) {
+	if (!node) return 0;
+	return (getHeight(node->left) - getHeight(node->right));
+}

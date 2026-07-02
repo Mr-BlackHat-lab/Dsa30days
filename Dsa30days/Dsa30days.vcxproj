@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AvlTree.cpp" />
     <ClCompile Include="BasicTree.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="LinearProbing.cpp" />

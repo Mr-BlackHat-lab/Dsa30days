@@ -1,7 +1,8 @@
 #include <iostream>
 
-#include "AvlTree.h"
-// #include "BinaryTree.h"
+#include "MaxHeap.h"
+//#include "AvlTree.h"
+//#include "BinaryTree.h"
 //#include "BasicTree.h"
 //#include "LinearProbing.h"
 //#include "HashMap.h"
@@ -13,66 +14,90 @@
 using namespace std;
 int main()
 {
-    AvlTree tree;
-    cout << "--- 1. Testing AVL Tree Insertions ---\n";
-    // Insert values that will trigger rotations
-    tree.insert(50);
-    tree.insert(25);
-    tree.insert(75);
-    tree.insert(10);
-    tree.insert(30);
-    tree.insert(60);
-    tree.insert(80);
-    tree.insert(5);
-    tree.insert(15);
-    cout << "Inserted: 50, 25, 75, 10, 30, 60, 80, 5, 15\n";
+    MaxHeap heap;
 
-    cout << "\n--- 2. Testing Tree Info ---\n";
-    tree.peek_root();
-    tree.tree_height();
+    std::cout << "--- 1. Testing Insert (Bubbling Up) ---\n";
+    // Let's insert random, unordered numbers
+    heap.insert(10);
+    heap.insert(30);
+    heap.insert(20);
+    heap.insert(50);
+    heap.insert(40);
+    heap.insert(15);
 
-    cout << "\n--- 3. Testing Traversals (Self-Balancing Verification) ---\n";
-    tree.in_orderTraversal();   // Should print sorted order
-    tree.pre_orderTraversal();  // Root first
-    tree.post_orderTraversal(); // Root last
+    std::cout << "Heap Array (Level-Order Traversal): ";
+    heap.printHeap();
+    // Expected output: 50 40 20 10 30 15 
+    // Notice how 50 fought its way to index 0!
 
-    cout << "\n--- 4. Testing AVL Search ---\n";
-    if (tree.search(30)) {
-        cout << "Success! Found 30 in the AVL tree.\n";
+    std::cout << "\nThe absolute Maximum value is currently: " << heap.peekMax() << "\n";
+    std::cout << "Total elements in heap: " << heap.getSize() << "\n\n";
+
+    std::cout << "--- 2. Testing Extract Max (Heap Sort) ---\n";
+    std::cout << "Extracting values one by one:\n";
+
+    // We will pull the King off the top until the heap is empty
+    while (!heap.isEmpty()) {
+        std::cout << heap.extractMax() << " ";
     }
-    if (tree.search(60)) {
-        cout << "Success! Found 60 in the AVL tree.\n";
-    }
-    if (!tree.search(99)) {
-        cout << "Success! 99 was correctly NOT found.\n";
-    }
+    std::cout << "\n";
+    // Expected output: 50 40 30 20 15 10 (Perfectly sorted from highest to lowest!)
 
-    cout << "\n--- 5. Testing AVL Deletions (With Rebalancing) ---\n";
-    cout << "> Removing 5 (Leaf Node)...\n";
-    tree.remove(5);
-    tree.in_orderTraversal();
+    return 0;
 
-    cout << "\n> Removing 10 (One Child)...\n";
-    tree.remove(10);
-    tree.in_orderTraversal();
-
-    cout << "\n> Removing 25 (Two Children)...\n";
-    tree.remove(25);
-    tree.in_orderTraversal();
-
-    cout << "\n--- 6. Post-Deletion Tree Info ---\n";
-    tree.peek_root();
-    tree.tree_height();
-    tree.in_orderTraversal();
-
-    cout << "\n--- 7. Testing Empty Tree Operations ---\n";
-    AvlTree emptyTree;
-    if (emptyTree.isEmpty()) {
-        cout << "Empty tree confirmed as empty.\n";
-    }
-    emptyTree.peek_root();
-    emptyTree.tree_height();
-    emptyTree.in_orderTraversal();
+    //AvlTree tree;
+    //cout << "--- 1. Testing AVL Tree Insertions ---\n";
+    //// Insert values that will trigger rotations
+    //tree.insert(50);
+    //tree.insert(25);
+    //tree.insert(75);
+    //tree.insert(10);
+    //tree.insert(30);
+    //tree.insert(60);
+    //tree.insert(80);
+    //tree.insert(5);
+    //tree.insert(15);
+    //cout << "Inserted: 50, 25, 75, 10, 30, 60, 80, 5, 15\n";
+    //cout << "\n--- 2. Testing Tree Info ---\n";
+    //tree.peek_root();
+    //tree.tree_height();
+    //cout << "\n--- 3. Testing Traversals (Self-Balancing Verification) ---\n";
+    //tree.in_orderTraversal();   // Should print sorted order
+    //tree.pre_orderTraversal();  // Root first
+    //tree.post_orderTraversal(); // Root last
+    //cout << "\n--- 4. Testing AVL Search ---\n";
+    //if (tree.search(30)) {
+    //    cout << "Success! Found 30 in the AVL tree.\n";
+    //}
+    //if (tree.search(60)) {
+    //    cout << "Success! Found 60 in the AVL tree.\n";
+    //}
+    //if (!tree.search(99)) {
+    //    cout << "Success! 99 was correctly NOT found.\n";
+    //}
+    //cout << "\n--- 5. Testing AVL Deletions (With Rebalancing) ---\n";
+    //cout << "> Removing 5 (Leaf Node)...\n";
+    //tree.remove(5);
+    //tree.in_orderTraversal();
+    //cout << "\n> Removing 10 (One Child)...\n";
+    //tree.remove(10);
+    //tree.in_orderTraversal();
+    //cout << "\n> Removing 25 (Two Children)...\n";
+    //tree.remove(25);
+    //tree.in_orderTraversal();
+    //cout << "\n--- 6. Post-Deletion Tree Info ---\n";
+    //tree.peek_root();
+    //tree.tree_height();
+    //tree.in_orderTraversal();
+    //cout << "\n--- 7. Testing Empty Tree Operations ---\n";
+    //AvlTree emptyTree;
+    //if (emptyTree.isEmpty()) {
+    //    cout << "Empty tree confirmed as empty.\n";
+    //}
+    //emptyTree.peek_root();
+    //emptyTree.tree_height();
+    //emptyTree.in_orderTraversal();
+ 
 
     // BinaryTree tree;
     // std::cout << "--- 1. Testing BST Insertions ---\n";

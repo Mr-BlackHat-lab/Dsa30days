@@ -5,25 +5,28 @@
 class MaxHeap
 {
 public:
-	MaxHeap();
-	~MaxHeap();
+	MaxHeap();//done
+	~MaxHeap();//done
 
-	bool isEmpty() const;
-	int getSize() const;
+	bool isEmpty() const;//done
+	int getSize() const;//done
 
-	void insert(int value);
-	int extractMax();//remove and get biggest value in max queue
-	int peekMax() const;
+	void insert(int value);//done
+	int extractMax();//remove and get biggest value in max queue(done)
+	int peekMax() const;//done
 
-	void printHeap() const;
+	void printHeap() const;//done
+
 
 private:
 	std::vector<int> heap;
 
-	int parent(int index) const;
-	int leftChild(int index) const;
-	int rightChild(int index) const;
+	int parent(int index) const; //done
+	int leftChild(int index) const;// done
+	int rightChild(int index) const;// done
 
-	void heapifyUp(int index);
-	void heapifyDown(int index);
+	void heapifyUp(int index); //done
+	void heapifyDown(int index);//done
+
+
 };

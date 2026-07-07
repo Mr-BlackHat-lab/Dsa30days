@@ -1,6 +1,8 @@
 #include <iostream>
 
-#include "MaxHeap.h"
+
+#include "UndirectedGraph.h"
+//#include "MaxHeap.h"
 //#include "AvlTree.h"
 //#include "BinaryTree.h"
 //#include "BasicTree.h"
@@ -14,36 +16,56 @@
 using namespace std;
 int main()
 {
-    MaxHeap heap;
+    Graph g;
 
-    std::cout << "--- 1. Testing Insert (Bubbling Up) ---\n";
-    // Let's insert random, unordered numbers
-    heap.insert(10);
-    heap.insert(30);
-    heap.insert(20);
-    heap.insert(50);
-    heap.insert(40);
-    heap.insert(15);
+    // 1. Build the network
+    g.addVertex(1);
+    g.addVertex(2);
+    g.addVertex(3);
+    g.addVertex(4);
+    g.addVertex(5);
 
-    std::cout << "Heap Array (Level-Order Traversal): ";
-    heap.printHeap();
-    // Expected output: 50 40 20 10 30 15 
-    // Notice how 50 fought its way to index 0!
+    // 2. Connect the roads (Undirected)
+    g.addEdge(1, 2);
+    g.addEdge(1, 3);
+    g.addEdge(2, 4);
+    g.addEdge(3, 4);
+    g.addEdge(4, 5);
 
-    std::cout << "\nThe absolute Maximum value is currently: " << heap.peekMax() << "\n";
-    std::cout << "Total elements in heap: " << heap.getSize() << "\n\n";
+    std::cout << "--- The Network Map ---\n";
+    g.printGraph();
 
-    std::cout << "--- 2. Testing Extract Max (Heap Sort) ---\n";
-    std::cout << "Extracting values one by one:\n";
-
-    // We will pull the King off the top until the heap is empty
-    while (!heap.isEmpty()) {
-        std::cout << heap.extractMax() << " ";
-    }
-    std::cout << "\n";
-    // Expected output: 50 40 30 20 15 10 (Perfectly sorted from highest to lowest!)
+    std::cout << "\n--- BFS Traversal (Starting at Vertex 1) ---\n";
+    // Expected Output: 1, then its neighbors (2, 3), then their neighbors (4), then 5.
+    g.bfs(1);
 
     return 0;
+
+    //MaxHeap heap;
+    //std::cout << "--- 1. Testing Insert (Bubbling Up) ---\n";
+    //// Let's insert random, unordered numbers
+    //heap.insert(10);
+    //heap.insert(30);
+    //heap.insert(20);
+    //heap.insert(50);
+    //heap.insert(40);
+    //heap.insert(15);
+    //std::cout << "Heap Array (Level-Order Traversal): ";
+    //heap.printHeap();
+    //// Expected output: 50 40 20 10 30 15 
+    //// Notice how 50 fought its way to index 0!
+    //std::cout << "\nThe absolute Maximum value is currently: " << heap.peekMax() << "\n";
+    //std::cout << "Total elements in heap: " << heap.getSize() << "\n\n";
+    //std::cout << "--- 2. Testing Extract Max (Heap Sort) ---\n";
+    //std::cout << "Extracting values one by one:\n";
+    //// We will pull the King off the top until the heap is empty
+    //while (!heap.isEmpty()) {
+    //    std::cout << heap.extractMax() << " ";
+    //}
+    //std::cout << "\n";
+    //// Expected output: 50 40 30 20 15 10 (Perfectly sorted from highest to lowest!)
+    //return 0;
+
 
     //AvlTree tree;
     //cout << "--- 1. Testing AVL Tree Insertions ---\n";
@@ -202,6 +224,7 @@ int main()
     //std::cout << "Root after deleting 1:\n";
     //tree.peek_root(); // Should be 6!
 
+
     //LinearProbing lp(5);
     //std::cout << "--- 1. Testing Insertions and Collisions ---\n";
     //// Assuming size 5, these will all hash to index 0, forcing a probe chain
@@ -219,6 +242,7 @@ int main()
     //}
     //std::cout << "\n--- 3. Viewing the State ---\n";
     //lp.traver();
+
 
     //HashMap myMap(5);
     //cout << "--- 1. Testing Insertions (Forcing Collisions) ---\n";
@@ -241,6 +265,7 @@ int main()
     //myMap.remove(99); // Testing removal of a non-existent value
     //cout << "\n--- 5. Final Hash Map State ---\n";
     //myMap.view();
+
 
     //ArrayStack mystack(9);
     //mystack.push(4);
@@ -280,6 +305,7 @@ int main()
     //mystack.trav();
     //mystack.pop();
 
+
     //LinkedlistStack mystack;
     //if (mystack.isEmpty()) {
     //    cout << "stack is empty\n";
@@ -302,6 +328,7 @@ int main()
     //}
     //mystack.traversal();
 
+
     //ArrayQueue mystack(5);
     //for (int i = 1; i <= 5;i++) {
     //    mystack.push(i);
@@ -315,6 +342,7 @@ int main()
     //mystack.traversal();
     //mystack.push(1);
     //mystack.traversal();
+
 
     //LinkedListQueue mystack;
     //for (int i = 1; i <= 5;i++) {

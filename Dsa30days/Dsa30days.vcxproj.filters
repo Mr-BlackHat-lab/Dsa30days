@@ -48,6 +48,12 @@
     <ClCompile Include="AvlTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MaxHeap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UndirectedGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStack.h">
@@ -81,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MaxHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UndirectedGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
